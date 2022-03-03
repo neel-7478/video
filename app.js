@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
@@ -33,6 +34,6 @@ app.get("/video", function (req, res) {
     videoStream.pipe(res);
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("server started at port number 3000");
 })
